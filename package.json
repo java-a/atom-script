@@ -328,7 +328,8 @@
     "strip-ansi": "^3.0.0",
     "underscore": "~1.5.2",
     "atom-space-pen-views": "^2.0.3",
-    "atom-message-panel": "1.2.4"
+    "atom-message-panel": "1.2.4",
+    "iconv-lite": "0.4.13"
   },
   "devDependencies": {
     "coffee-script": "^1.10.0",

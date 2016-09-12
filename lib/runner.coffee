@@ -1,6 +1,7 @@
 {Emitter, BufferedProcess} = require 'atom'
 fs = require 'fs'
 path = require 'path'
+iconv = require 'iconv-lite'
 
 module.exports =
 class Runner
@@ -32,13 +33,13 @@ class Runner
     @bufferedProcess.onWillThrowError(@createOnErrorFunc(command))
 
   stdoutFunc: (output) =>
-    @emitter.emit 'did-write-to-stdout', { message: output }
+    @emitter.emit 'did-write-to-stdout', { message: iconv.encode(iconv.decode(output, 'GBK'), 'utf-8') }
 
   onDidWriteToStdout: (callback) ->
     @emitter.on 'did-write-to-stdout', callback
 
   stderrFunc: (output) =>
-    @emitter.emit 'did-write-to-stderr', { message: output }
+    @emitter.emit 'did-write-to-stderr', { message: iconv.encode(iconv.decode(output, 'GBK'), 'utf-8') }
 
   onDidWriteToStderr: (callback) ->
     @emitter.on 'did-write-to-stderr', callback
