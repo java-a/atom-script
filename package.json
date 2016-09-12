@@ -1,7 +1,7 @@
 {
   "name": "script-fudan",
   "main": "./lib/script",
-  "version": "233.3.3",
+  "version": "234.0.0",
   "private": false,
   "description": "Run code in Atom!",
   "author": "Zhongyi Tong <zhongyi.tong@foxmail.com>",
