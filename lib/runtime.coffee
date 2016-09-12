@@ -43,7 +43,7 @@ class Runtime
   # * "File Based"
   # input (Optional) - {String} that'll be provided to the `stdin` of the new process
   execute: (argType = "Selection Based", input = null, options = null) ->
-    @stop() if atom.config.get 'script.stopOnRerun'
+    @stop() if atom.config.get 'script-fudan.stopOnRerun'
     @emitter.emit 'start'
 
     codeContext = @codeContextBuilder.buildCodeContext(atom.workspace.getActiveTextEditor(), argType)

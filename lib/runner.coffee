@@ -65,7 +65,7 @@ class Runner
   onExit: (returnCode) =>
     @bufferedProcess = null
 
-    if (atom.config.get 'script.enableExecTime') is true and @startTime
+    if (atom.config.get 'script-fudan.enableExecTime') is true and @startTime
       executionTime = (new Date().getTime() - @startTime.getTime()) / 1000
 
     @emitter.emit 'did-exit', { executionTime: executionTime, returnCode: returnCode }

@@ -45,7 +45,7 @@ class CodeContextBuilder
     filename = editor.getTitle()
     filepath = editor.getPath()
     selection = editor.getLastSelection()
-    ignoreSelection = atom.config.get 'script.ignoreSelection'
+    ignoreSelection = atom.config.get 'script-fudan.ignoreSelection'
 
     # If the selection was empty or if ignore selection is on, then "select" ALL
     # of the text

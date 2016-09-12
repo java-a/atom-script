@@ -144,7 +144,7 @@ class ScriptView extends MessagePanelView
     @headerView.title.text title
 
   display: (css, line) ->
-    if atom.config.get('script.escapeConsoleOutput')
+    if atom.config.get('script-fudan.escapeConsoleOutput')
       line = _.escape(line)
 
     line = @ansiFilter.toHtml(line)
@@ -159,7 +159,7 @@ class ScriptView extends MessagePanelView
       @pre class: "line #{css}", =>
         @raw line
 
-    if atom.config.get('script.scrollWithOutput') and atEnd
+    if atom.config.get('script-fudan.scrollWithOutput') and atEnd
       # Scroll down in a polling loop 'cause
       # we don't know when the reflow will finish.
       # See: http://stackoverflow.com/q/5017923/407845
