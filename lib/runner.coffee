@@ -33,7 +33,7 @@ class Runner
     @bufferedProcess.onWillThrowError(@createOnErrorFunc(command))
 
   stdoutFunc: (output) =>
-    @emitter.emit 'did-write-to-stdout', { message: iconv.encode(iconv.decode(output, 'GBK'), 'utf-8') }
+    @emitter.emit 'did-write-to-stdout', { message: output }
 
   onDidWriteToStdout: (callback) ->
     @emitter.on 'did-write-to-stdout', callback
