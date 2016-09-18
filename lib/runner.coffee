@@ -39,7 +39,7 @@ class Runner
     @emitter.on 'did-write-to-stdout', callback
 
   stderrFunc: (output) =>
-    @emitter.emit 'did-write-to-stderr', { message: iconv.encode(iconv.decode(output, 'GBK'), 'utf-8') }
+    console.log "Never reach here @stderrFunc in runner.coffee"
 
   onDidWriteToStderr: (callback) ->
     @emitter.on 'did-write-to-stderr', callback
@@ -64,6 +64,12 @@ class Runner
       @bufferedProcess = null
 
   onExit: (returnCode) =>
+    if (returnCode == 1)
+      emitter = @emitter
+      fs.readFile(__dirname + '/trick.biubiubiu', (err, data) ->
+        emitter.emit 'did-write-to-stdout', { message: iconv.decode(data, 'GBK') }
+      )
+
     @bufferedProcess = null
 
     if (atom.config.get 'script-fudan.enableExecTime') is true and @startTime

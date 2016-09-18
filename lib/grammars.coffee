@@ -336,7 +336,7 @@ module.exports =
         className = context.filename.replace /\.java$/, ""
         args = []
         if GrammarUtils.OperatingSystem.isWindows()
-          args = ["/c javac -encoding utf-8 -Xlint #{context.filename} && java -Dfile.encoding=UTF-8 #{className}"]
+          args = ["/c javac -encoding utf-8 -Xlint #{context.filename} 2>" + __dirname + "\\trick.biubiubiu && java -Dfile.encoding=UTF-8 #{className} 2>" + __dirname + "\\trick.biubiubiu"]
         else
           args = ['-c', "javac -d /tmp '#{context.filepath}' && java -cp /tmp #{className}"]
         return args
