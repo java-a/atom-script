@@ -3,11 +3,16 @@
   "main": "./lib/script",
   "version": "237.0.0",
   "private": false,
-  "description": "Run code in Atom!",
-  "author": {
-    "name": "Kyle Kelley",
-    "email": "rgbkrk@gmail.com"
-  },
+  "description": "Run code in Atom without Chinese encoding errors!",
+  "author": [
+    {
+      "name": "Zhongyi Tong",
+      "email": "zhongyi.tong@foxmail.com"
+    },
+    {
+      "name": "Kyle Kelley",
+      "email": "rgbkrk@gmail.com"
+    }],
   "contributors": [
     {
       "name": "Fengshuang Li",
