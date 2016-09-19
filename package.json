@@ -1,7 +1,7 @@
 {
   "name": "script-fudan",
   "main": "./lib/script",
-  "version": "237.1.0",
+  "version": "237.2.0",
   "private": false,
   "description": "Run code in Atom without Chinese encoding errors!",
   "author": [
