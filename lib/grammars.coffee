@@ -56,7 +56,7 @@ module.exports =
       command: "behat"
       args: (context) -> [context.fileColonLine()]
 
-  BucketScript:
+  BuckleScript:
     "Selection Based":
       command: "bsc"
       args: (context) ->
@@ -237,6 +237,11 @@ module.exports =
       command: if GrammarUtils.OperatingSystem.isWindows() then "fsi" else "fsharpi"
       args: (context) -> ['--exec', context.filepath]
 
+  'F*':
+    "File Based":
+      command: "fstar"
+      args: (context) -> ['--fsi', context.filepath]
+
   Forth:
     "File Based":
       command: "gforth"
@@ -306,7 +311,10 @@ module.exports =
       args: (context) -> [context.filepath]
     "Selection Based":
       command: "hy"
-      args: (context) -> ['-c', context.getCode()]
+      args: (context) ->
+        code = context.getCode(true)
+        tmpFile = GrammarUtils.createTempFileWithCode(code, ".hy")
+        [tmpFile]
 
   IcedCoffeeScript:
     "Selection Based":
@@ -555,6 +563,17 @@ module.exports =
     "File Based":
       command: "octave"
       args: (context) -> ['-p', context.filepath.replace(/[^\/]*$/, ''), context.filepath]
+
+  Oz:
+    "Selection Based":
+      command: "ozc"
+      args: (context) ->
+        code = context.getCode()
+        tmpFile = GrammarUtils.createTempFileWithCode(code)
+        ['-c', tmpFile]
+    "File Based":
+      command: "ozc"
+      args: (context) -> ['-c', context.filepath]
 
   'Pandoc Markdown':
     "File Based":
