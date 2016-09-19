@@ -66,7 +66,7 @@ class Runner
   onExit: (returnCode) =>
     if (returnCode == 1)
       emitter = @emitter
-      fs.readFile(__dirname + '/trick.biubiubiu', (err, data) ->
+      fs.readFile(__dirname + '/stderr_redir.tmp', (err, data) ->
         emitter.emit 'did-write-to-stdout', { message: iconv.decode(data, 'GBK') }
       )
 
