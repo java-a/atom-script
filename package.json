@@ -4,8 +4,19 @@
   "version": "234.4.0",
   "private": false,
   "description": "Run code in Atom!",
-  "author": "Zhongyi Tong <zhongyi.tong@foxmail.com>",
+  "author": {
+    "name": "Kyle Kelley",
+    "email": "rgbkrk@gmail.com"
+  },
   "contributors": [
+    {
+      "name": "Fengshuang Li",
+      "email": "fengshuang1102@gmail.com"
+    },
+    {
+      "name": "Zhongyi Tong",
+      "email": "zhongyi.tong@foxmail.com"
+    },
     {
       "name": "Kyle Kelley",
       "email": "rgbkrk@gmail.com"

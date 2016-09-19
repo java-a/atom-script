@@ -346,7 +346,7 @@ module.exports =
         if GrammarUtils.OperatingSystem.isWindows()
           args = ["/c javac -encoding utf-8 -Xlint #{context.filename} 2>" + __dirname + "\\stderr_redir.tmp && java -Dfile.encoding=UTF-8 #{className} 2>" + __dirname + "\\stderr_redir.tmp"]
         else
-          args = ['-c', "javac -d /tmp '#{context.filepath}' && java -cp /tmp #{className}"]
+          args = ['-c', "javac -d /tmp '#{context.filepath}' 2>" + __dirname + "/stderr_redir.tmp && java -cp /tmp #{className} 2>" + __dirname + "/stderr_redir.tmp"]
         return args
 
   JavaScript:
