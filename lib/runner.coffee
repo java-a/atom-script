@@ -2,6 +2,7 @@
 fs = require 'fs'
 path = require 'path'
 iconv = require 'iconv-lite'
+GrammarUtils = require '../lib/grammar-utils'
 
 module.exports =
 class Runner
@@ -68,7 +69,8 @@ class Runner
       emitter = @emitter
       fs.readFile(__dirname + '/stderr_redir.tmp', (err, data) ->
         if (!err)
-          emitter.emit 'did-write-to-stdout', { message: iconv.decode(data, 'GBK') }
+          decoded_data = if GrammarUtils.OperatingSystem.isWindows() then iconv.decode(data, 'GBK') else data;
+          emitter.emit 'did-write-to-stdout', { message: decoded_data }
       )
 
     @bufferedProcess = null
