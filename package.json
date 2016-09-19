@@ -1,7 +1,7 @@
 {
   "name": "script-fudan",
   "main": "./lib/script",
-  "version": "235.0.0",
+  "version": "236.0.0",
   "private": false,
   "description": "Run code in Atom!",
   "author": {
